@@ -20,7 +20,7 @@ PINS_TEXT = """
 ‣ `!الرسائل المثبتة`
 لأظهار الرسائل المثبتة في المجموعة
 
-[𖠄 𝗝𝗲𝗽𝘁𝗵𝗼𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𖠄](https://t.me/JEPTHON)
+[𖠄 ELRASRM 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𖠄](https://t.me/E_L_R_A_S_A_M)
 """
 
 @JE313P.on(events.NewMessage(pattern="^[?!/]الرسائل المثبتة"))
@@ -32,7 +32,7 @@ async def get_pinned(event):
     await event.reply(tem, parse_mode="html", link_preview=False)
 
 @JE313P.on(events.NewMessage(pattern="^[!?/]تثبيت ?(.*)"))
-@is_admin
+@Mahmod777777
 async def pin(event, perm):
     if not perm.pin_messages:
        await event.reply("يجب ان تمتلك صلاحيات التثببيت اولا")
@@ -48,7 +48,7 @@ async def pin(event, perm):
     await JE313P.pin_message(event.chat_id, msg)   
 
 @JE313P.on(events.NewMessage(pattern="^[!?/]الغاء تثبيت ?(.*)"))
-@is_admin
+@Mahmod777777
 async def unpin(event, perm):
     if not perm.pin_messages:
        await event.reply("يجب ان تمتلك صلاحيات التثببيت اولا")

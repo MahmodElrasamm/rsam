@@ -28,7 +28,7 @@ from youtubesearchpython import VideosSearch
 fotoplay = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 ngantri = "https://telegra.ph/file/b6402152be44d90836339.jpg"
 from JE313P import call_py, JE313P, client as Client
-owner = "705475246"
+owner = "2125600195"
 from JE313P.helpers.yt_dlp import bash
 from JE313P.helpers.chattitle import CHAT_TITLE
 from JE313P.helpers.queues import (
@@ -130,7 +130,7 @@ btnn =[
 
 
 #play
-@JE313P.on(events.NewMessage(pattern="^[?!/]تشغيل"))
+@JE313P.on(events.NewMessage(pattern="تشغيل"))
 async def play(event):
     title = ' '.join(event.text[5:])
     replied = await event.get_reply_message()
@@ -147,7 +147,7 @@ async def play(event):
         or not replied
         and not title
     ):
-        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**يجب عليك كتابة عنوان الشيء الذي تريد تشغيله**\n\n **مثال**: `!تشغيل سورة الكهف`", buttons=btnn)
+        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**يجب عليك كتابة عنوان الشيء الذي تريد تشغيله**\n\n **مثال**: `تشغيل سورة الكهف`", buttons=btnn)
     elif replied and not replied.audio and not replied.voice or not replied:
         botman = await event.reply("يتم التعرف على البيانات انتظر . . .")
         query = event.text.split(maxsplit=1)[1]
@@ -227,8 +227,8 @@ async def play(event):
 
 
 #end
-@JE313P.on(events.NewMessage(pattern="^[/?!]انهاء"))
-@is_admin
+@JE313P.on(events.NewMessage(pattern="انهاء"))
+@Mahmod777777
 async def vc_end(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -245,7 +245,7 @@ async def vc_end(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]فيديو"))
+@JE313P.on(events.NewMessage(pattern="فيديو"))
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
         await event.reply("- لا يمكنك استخدام هذا الامر لانك تستخدم هيروكو في التنصيب")
@@ -267,7 +267,7 @@ async def vplay(event):
         or not replied
         and not title
     ):
-        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**يجب عليك كتابة عنوان لتشغيله**\n\n **مثال**: `!فيديو قران`", buttons=btnn)
+        return await event.client.send_file(chat_id, Config.CMD_IMG, caption="**يجب عليك كتابة عنوان لتشغيله**\n\n **مثال**: `فيديو قران`", buttons=btnn)
     if replied and not replied.video and not replied.document:
         razan = await event.reply("انتظر قليلا يتم التعرف")
         query = event.text.split(maxsplit=1)[1]
@@ -408,8 +408,8 @@ async def vplay(event):
 
 
 #playlist
-@JE313P.on(events.NewMessage(pattern="^[?!/]التشغيل"))
-@is_admin
+@JE313P.on(events.NewMessage(pattern="التشغيل"))
+@Mahmod777777
 async def vc_playlist(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -438,8 +438,8 @@ async def vc_playlist(event, perm):
 
 
 #كود المغادرة
-@JE313P.on(events.NewMessage(pattern="^[?!/]مغادرة"))
-@is_admin
+@JE313P.on(events.NewMessage(pattern="مغادرة"))
+@Mahmod777777
 async def leavevc(event, perm):
     razan = await event.reply("- يرجى الانتظار قليلا")
     chat_id = event.chat_id
@@ -455,8 +455,8 @@ async def leavevc(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]تخطي"))
-@is_admin
+@JE313P.on(events.NewMessage(pattern="تخطي"))
+@Mahmod777777
 async def vc_skip(event, perm):
     chat_id = event.chat_id
     if len(event.text.split()) < 2:
@@ -477,15 +477,15 @@ async def vc_skip(event, perm):
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
             for x in items:
-                if x != 0:
+                if x = 0:
                     hm = await skip_item(chat_id, x)
-                    if hm != 0:
+                    if hm = 0:
                         DELQUE = DELQUE + "\n" + f"**#{x}** - {hm}"
             await event.reply(DELQUE)
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]ايقاف"))
-@is_admin
+@JE313P.on(events.NewMessage(pattern="ايقاف"))
+@Mahmod777777
 async def vc_pause(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
@@ -499,8 +499,8 @@ async def vc_pause(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]استئناف"))
-@is_admin
+@JE313P.on(events.NewMessage(pattern="استئناف"))
+@Mahmod777777
 async def vc_resume(event, perm):
     chat_id = event.chat_id
     if chat_id in QUEUE:
